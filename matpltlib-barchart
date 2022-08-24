@@ -1,0 +1,76 @@
+#Simple bar chart 
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+objects = ('Python', 'C++', 'Java', 'Perl', 'Scala', 'Lisp')    # () tuple store multiple items in a single variable,A tuple is a collection which is ordered and unchangeable.
+y_pos = np.arange(len(objects))    #. arange() is one such function based on numerical ranges
+performance = [10,8,6,4,2,1]  #List items are ordered, changeable, and allow duplicate values.List items are indexed, the first item has index [0], the second item has index [1] etc.
+
+plt.bar(y_pos,performance,align="center",alpha=0.5)    # alpha means the percent of transparency of pic,range [0,1]
+plt.xticks(y_pos,objects)    #Get or set the current tick locations and labels of the x-axis.
+plt.ylabel("usage")
+plt.title("Programming language usage")
+
+
+plt.barh(y_pos,performance,align="edge",alpha=0.5) # barh means horizontal barchart
+plt.xticks(y_pos,objects)  #Get or set the current tick locations and labels of the x-axis.
+plt.ylabel("usage")
+plt.title("Programming language usage")
+plt.grid(color='#95a5a6', linestyle='--', linewidth=2, axis='y', alpha=0.7)
+
+
+plt.show()
+
+# comparsion of barcharts
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+n_groups = 4
+means_frank = (90, 55, 40, 65)
+means_guido = (85, 62, 54, 20)
+
+fig, ax = plt.subplots()
+index = np.arange(n_groups)
+
+opacity = 0.8
+bar_width = 0.35
+rects1 = plt.bar(index, means_frank, bar_width,
+alpha=opacity,
+color='b',
+label='Frank')
+
+rects2 = plt.bar(index + bar_width, means_guido, bar_width,
+alpha=opacity,
+color='g',
+label='Guido')
+
+plt.xlabel('Person')
+plt.ylabel('Scores')
+plt.title('Scores by person')
+plt.xticks(index+bar_width
+, ('A', 'B', 'C', 'D'))
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+
+#stack barchart
+
+import matplotlib.pyplot as plt
+#matplotlib.pyplot is a collection of functions that make matplotlib work like MATLAB. Each pyplot function makes some change to a figure:
+
+x = ['A', 'B', 'C', 'D']
+y1 = [100, 120, 110, 130]
+y2 = [120, 125, 115, 125]
+
+plt.bar(x,y1,color='g')
+plt.bar(x,y2, bottom=y1,color='y')
+
+plt.show()
+
+
+
+
+
